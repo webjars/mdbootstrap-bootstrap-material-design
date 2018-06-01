@@ -10,25 +10,23 @@
 	
 	<packaging>jar</packaging>
 	<groupId>org.webjars</groupId>
-	<artifactId>mdbootstrap-bootstrap-material-design-webjar</artifactId>
-	<version>4.5.3</version>
+	<artifactId>mdbootstrap-bootstrap-material-design</artifactId>
+	<version>4.5.3-SNAPSHOT</version>
 	<name>mdbootstrap-bootstrap-material-design</name>
-	<description>Webjar for bootstrap-material-design</description>
+	<description>Webjar for mdbootstrap-bootstrap-material-design</description>
     <url>http://webjars.org</url>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>4.5.3</upstream.version>
-        <upstream.url>https://github.com/mdbootstrap/bootstrap-material-design/archive/${upstream.version}.zip</upstream.url>
+        <upstream.url>https://github.com/mdbootstrap/bootstrap-material-design/archive/${version.unsnapshot}.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
                 "paths": {
-                    "bootstrap-material-design": "bootstrap-material-design",
+                    "mdbootstrap-bootstrap-material-design": "mdbootstrap-bootstrap-material-design",
                 }
             }
         </requirejs>
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     </properties>
 
     <developers>
@@ -70,23 +68,6 @@
                 </executions>
             </plugin>
 
-			<plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-                <version>1.0-beta-4</version>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals><goal>download-single</goal></goals>
-                        <configuration>
-                            <url>${sourceUrl}</url>
-                            <fromFile>v${version.unrevise}.zip</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -103,7 +84,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
                                 <echo message="moving resources"/>
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}"/>
+                                    <fileset dir="${project.build.directory}/bootstrap-material-design-${version.unsnapshot}"/>
                                 </move>
                             </target>
                         </configuration>
