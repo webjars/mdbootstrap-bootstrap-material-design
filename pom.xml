@@ -11,7 +11,7 @@
 	<packaging>jar</packaging>
 	<groupId>org.webjars</groupId>
 	<artifactId>mdbootstrap-bootstrap-material-design</artifactId>
-	<version>4.7.5-SNAPSHOT</version>
+	<version>4.8.8-SNAPSHOT</version>
 	<name>mdbootstrap-bootstrap-material-design</name>
 	<description>Webjar for mdbootstrap-bootstrap-material-design</description>
     <url>http://webjars.org</url>
